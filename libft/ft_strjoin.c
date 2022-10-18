@@ -6,7 +6,7 @@
 /*   By: khbouych <khbouych@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/11 19:32:19 by khbouych          #+#    #+#             */
-/*   Updated: 2022/10/18 17:51:45 by khbouych         ###   ########.fr       */
+/*   Updated: 2022/10/18 17:59:56 by khbouych         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,19 +35,3 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	return (new_string);
 }
 
-// char	*ft_strjoin(char const *s1, char const *s2)
-// {
-// 	size_t	ls1;
-// 	size_t	ls2;
-
-// 	/*char	*ptr;
-// 	ls1 = ft_strlen(s1);
-// 	ls2 = ft_strlen(s2);
-// 	ptr = malloc(ls1 + 1 + ls2 + 1);
-// 	if (!s1 || !s2)
-// 		return (0);
-// 	if (!ptr)
-// 		return (0);
-// 	ft_strlcat(ptr, s1, ls1 + 1);
-// 	ft_strlcat(&ptr[ls1], s2, ls2 + 1);
-// 	return (ptr);
