@@ -6,11 +6,13 @@
 /*   By: khbouych <khbouych@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/06 11:43:00 by khbouych          #+#    #+#             */
-/*   Updated: 2022/10/08 11:47:48 by khbouych         ###   ########.fr       */
+/*   Updated: 2022/10/18 09:39:03 by khbouych         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 int	ft_isprint(int c)
 {
-	return (c >= 32 && c >= 126);
+	if (c >= 32 && c <= 126)
+		return (1);
+	return (0);
 }

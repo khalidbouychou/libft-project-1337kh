@@ -6,10 +6,9 @@
 /*   By: khbouych <khbouych@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/08 11:40:20 by khbouych          #+#    #+#             */
-/*   Updated: 2022/10/16 13:23:39 by khbouych         ###   ########.fr       */
+/*   Updated: 2022/10/16 21:39:51 by khbouych         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 
 #include "libft.h"
 
@@ -20,8 +19,6 @@ char	*ft_strchr(const char *s, int c)
 
 	i = 0;
 	first_occurence = NULL;
-	if (!s)
-		return (NULL);
 	if (c == 0)
 		return ((char *)&s[ft_strlen(s)]);
 	while (s[i])
@@ -34,3 +31,4 @@ char	*ft_strchr(const char *s, int c)
 		i++;
 	}
 	return (first_occurence);
+}

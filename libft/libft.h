@@ -6,7 +6,7 @@
 /*   By: khbouych <khbouych@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/07 21:10:47 by khbouych          #+#    #+#             */
-/*   Updated: 2022/10/16 12:19:18 by khbouych         ###   ########.fr       */
+/*   Updated: 2022/10/18 11:00:32 by khbouych         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,9 +73,10 @@ char				*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 char				*ft_strtrim(char const *s1, char const *set);
 char				*ft_substr(char const *s, unsigned int start, size_t len);
 char				*ft_strdup(const char *s1);
-char				*ft_strnstr(const char *str, const char *tofind,size_t len);
+char				*ft_strnstr(const char *haystack, const char *needle,
+						size_t len);
 char				*ft_strtrim(char const *s1, char const *set);
-void				ft_striteri(char *s, void (*f)(unsigned int, char*));
+void				ft_striteri(char *s, void (*f)(unsigned int, char *));
 //-------fd------------------------------
 void				ft_putchar_fd(char c, int fd);
 void				ft_putstr_fd(char *s, int fd);

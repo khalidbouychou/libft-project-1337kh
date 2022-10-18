@@ -6,11 +6,12 @@
 /*   By: khbouych <khbouych@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/16 11:32:20 by khbouych          #+#    #+#             */
-/*   Updated: 2022/10/16 11:35:36 by khbouych         ###   ########.fr       */
+/*   Updated: 2022/10/16 18:00:16 by khbouych         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+
 static char	**free_all_if_error(char **array)
 {
 	unsigned int	i;

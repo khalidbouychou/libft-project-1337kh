@@ -6,28 +6,24 @@
 /*   By: khbouych <khbouych@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/16 14:44:32 by khbouych          #+#    #+#             */
-/*   Updated: 2022/10/16 14:56:29 by khbouych         ###   ########.fr       */
+/*   Updated: 2022/10/18 17:06:26 by khbouych         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-
+#include "libft.h"
+#include <errno.h>
 #include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
 
-static void    sum(int a , int b)
+int	main(void)
 {
-    printf("sum ==> %d\n",a + b);
-}
-static void    sub(int a , int b)
-{
-    printf("sub ==> %d\n",a - b);
-}
-void    display(void (*f)(int,int))
-{
-    (*f)(5,2);
-}
+	char	*n;
+	int		i1;
+	int		i2;
 
-int  main()
-{
-    display(sum);
-    display(sub);
+	n = "9844674407370955161";
+	i1 = atoi(n);
+	i2 = ft_atoi(n);
+	printf("atoi = %d\n ft_atoi = %d", i1, i2);
 }

@@ -6,7 +6,7 @@
 /*   By: khbouych <khbouych@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/06 11:52:18 by khbouych          #+#    #+#             */
-/*   Updated: 2022/10/16 12:39:27 by khbouych         ###   ########.fr       */
+/*   Updated: 2022/10/16 18:19:11 by khbouych         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,10 @@
 
 void	*ft_memset(void *s, int c, size_t n)
 {
-	size_t	i;
 	unsigned char	*string;
+	size_t			i;
 
-	string = (char *)s;
+	string = (unsigned char *)s;
 	i = 0;
 	while (i < n)
 	{
