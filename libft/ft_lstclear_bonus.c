@@ -6,7 +6,7 @@
 /*   By: khbouych <khbouych@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/14 11:12:11 by khbouych          #+#    #+#             */
-/*   Updated: 2022/10/18 17:41:34 by khbouych         ###   ########.fr       */
+/*   Updated: 2022/10/19 13:41:30 by khbouych         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,15 @@
 
 void	ft_lstclear(t_list **lst, void (*del)(void *))
 {
-	t_list	*cur;
+	t_list	*next;
 
-	while (*lst != NULL)
+	if (lst)
 	{
-		del((*lst)->content);
-		cur = *lst;
-		*lst = cur->next;
-		free(cur);
+		while (*lst)
+		{
+			next = (*lst)->next;
+			ft_lstdelone(*lst, del);
+			(*lst) = next;
+		}
 	}
-	*lst = NULL;
 }

@@ -6,7 +6,7 @@
 /*   By: khbouych <khbouych@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/13 21:59:12 by khbouych          #+#    #+#             */
-/*   Updated: 2022/10/16 13:30:04 by khbouych         ###   ########.fr       */
+/*   Updated: 2022/10/19 15:54:19 by khbouych         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,8 +33,13 @@ char	*ft_strtrim(char const *s1, char const *set)
 	size_t	begin;
 	size_t	end;
 
+	if (!s1)
+		return (0);
+	if (!set)
+		return ((char *)s1);
 	i = 0;
 	begin = 0;
+	res = NULL;
 	end = ft_strlen(s1);
 	res = malloc(sizeof(char) * (end - begin + 1));
 	if (res == NULL)

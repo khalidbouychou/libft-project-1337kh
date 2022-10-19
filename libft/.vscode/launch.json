@@ -8,8 +8,8 @@
       "args": [],
       "stopAtEntry": true,
       "externalConsole": false,
-      "cwd": "/Users/khbouych/Desktop/lbft",
-      "program": "/Users/khbouych/Desktop/lbft/build/Debug/outDebug",
+      "cwd": "/Users/khbouych/Desktop/libft",
+      "program": "/Users/khbouych/Desktop/libft/build/Debug/outDebug",
       "MIMode": "gdb",
       "miDebuggerPath": "gdb"
     }

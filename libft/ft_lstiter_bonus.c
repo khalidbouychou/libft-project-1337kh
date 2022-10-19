@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstiter.c                                       :+:      :+:    :+:   */
+/*   ft_lstiter_bonus.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: khbouych <khbouych@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/14 11:13:00 by khbouych          #+#    #+#             */
-/*   Updated: 2022/10/16 12:24:30 by khbouych         ###   ########.fr       */
+/*   Updated: 2022/10/19 15:57:43 by khbouych         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,11 @@
 
 void	ft_lstiter(t_list *lst, void (*f)(void *))
 {
-	t_list	*cur;
-
-	cur = lst;
-	while (cur != NULL)
+	if (!f && !lst)
+		return ;
+	while (lst)
 	{
-		f(cur->content);
-		cur = cur->next;
+		f(lst->content);
+		lst = lst->next;
 	}
 }

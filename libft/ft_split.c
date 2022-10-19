@@ -6,95 +6,88 @@
 /*   By: khbouych <khbouych@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/16 11:32:20 by khbouych          #+#    #+#             */
-/*   Updated: 2022/10/16 18:00:16 by khbouych         ###   ########.fr       */
+/*   Updated: 2022/10/19 16:11:01 by khbouych         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static char	**free_all_if_error(char **array)
+static size_t	ft_count_words(char const *str, char c)
 {
-	unsigned int	i;
+	size_t	i;
+	size_t	nbr_words;
 
 	i = 0;
-	while (array[i])
+	nbr_words = 0;
+	while (str[i])
 	{
-		free(array[i]);
+		if (str[i] != c && (str[i + 1] == c || str[i + 1] == '\0'))
+			nbr_words++;
 		i++;
 	}
-	free(array);
-	return (NULL);
+	return (nbr_words);
 }
 
-static unsigned int	get_nb_cols(char const *s, char c)
+static size_t	ft_len_word(char const *str, char c)
 {
-	unsigned int	i;
-	unsigned int	nb_cols;
+	int	i;
+	int	len;
 
-	nb_cols = 0;
-	if (!s[0])
-		return (0);
 	i = 0;
-	while (s[i] && s[i] == c)
-		i++;
-	while (s[i])
+	len = 0;
+	while (str[i] != c && str[i] != '\0')
 	{
-		if (s[i] == c)
-		{
-			nb_cols++;
-			while (s[i] && s[i] == c)
-				i++;
-			continue ;
-		}
 		i++;
+		len++;
 	}
-	if (s[i - 1] != c)
-		nb_cols++;
-	return (nb_cols);
+	return (len);
 }
 
-static void	get_row(char **row, unsigned int *row_len, char c)
+static void	*ft_clear_leak(char **output, int nbr_words)
 {
-	unsigned int	i;
+	int	i;
 
-	*row += *row_len;
-	*row_len = 0;
-	i = 0;
-	while (**row && **row == c)
-		(*row)++;
-	while ((*row)[i])
+	i = -1;
+	while (++i < nbr_words)
+		free(output[i]);
+	free(output);
+	return (0);
+}
+
+static char	**ft_form_words(char const *str, char c, int nbr_words,
+		char **output)
+{
+	int	i;
+	int	j;
+	int	len;
+
+	i = -1;
+	while (++i < nbr_words)
 	{
-		if ((*row)[i] == c)
-			return ;
-		(*row_len)++;
-		i++;
+		while (*str == c)
+			str++;
+		len = ft_len_word(str, c);
+		output[i] = (char *)malloc(sizeof(char) * (len + 1));
+		if (!output[i])
+			return (ft_clear_leak(output, i));
+		j = 0;
+		while (j < len)
+			output[i][j++] = *str++;
+		output[i][j] = '\0';
 	}
+	output[i] = NULL;
+	return (output);
 }
 
 char	**ft_split(char const *s, char c)
 {
-	char			**splitted;
-	char			*row;
-	unsigned int	i;
-	unsigned int	nb_c;
-	unsigned int	row_len;
+	char	**output;
 
-	nb_c = get_nb_cols(s, c);
-	splitted = malloc(sizeof(char *) * (nb_c + 1));
-	if (splitted == NULL)
-		return (NULL);
-	row = (char *)s;
-	row_len = 0;
-	i = 0;
-	while (i < nb_c)
-	{
-		get_row(&row, &row_len, c);
-		splitted[i] = malloc(sizeof(char) * (row_len + 1));
-		if (splitted[i] == NULL)
-			return (free_all_if_error(splitted));
-		ft_strlcpy(splitted[i], row, row_len + 1);
-		i++;
-	}
-	splitted[i] = NULL;
-	return (splitted);
+	if (!s)
+		return (0);
+	output = (char **)malloc(sizeof(char *) * (ft_count_words(s, c) + 1));
+	if (!output)
+		return (0);
+	output = ft_form_words(s, c, ft_count_words(s, c), output);
+	return (output);
 }
